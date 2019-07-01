@@ -42,7 +42,7 @@ docker logs database
 Create Model:
 
 ```
-npx sequelize migration:create --name=create-<model>
+npx sequelize migration:create --name=<name-migration>
 ```
 
 Update Database:
