@@ -4,7 +4,7 @@ class UserController {
   async store(req, res) {
     const { id, name, email, provider } = await User.create(req.body);
 
-    return res.json({
+    return res.status(201).json({
       id,
       name,
       email,
@@ -19,7 +19,7 @@ class UserController {
 
     const { id, name, provider } = await user.update(req.body);
 
-    return res.json({
+    return res.status(200).json({
       id,
       name,
       email,
