@@ -4,7 +4,7 @@ import User from '../models/User';
 import authConfig from '../../config/auth';
 
 class SessionValidation {
-  async exist(req, res, next) {
+  async login(req, res, next) {
     const { email, password } = req.body;
 
     const user = await User.findOne({ where: { email } });
