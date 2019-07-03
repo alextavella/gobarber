@@ -57,3 +57,9 @@ Undo Migration:
 npx sequelize db:migrate:undo
 npx sequelize db:migrate:undo:all
 ```
+
+## Mongo
+
+```
+docker run --name mongobarber -p 27017:27017 -d -t mongo
+```
