@@ -63,3 +63,13 @@ npx sequelize db:migrate:undo:all
 ```
 docker run --name mongobarber -p 27017:27017 -d -t mongo
 ```
+
+## Mailer Service
+
+```
+Amazon SWS
+Mailgun
+Sparkpost
+Mandril (Mailchimp)
+Mailtrap (only DEV)
+```

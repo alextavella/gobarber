@@ -6,7 +6,7 @@ import authMiddleware from '../middleware/auth';
 
 export default routes => {
   routes
-    .route('/appointments')
+    .route('/appointments/:id?')
     .get(authMiddleware, AppointmentController.index)
     .post(
       authMiddleware,
@@ -15,6 +15,11 @@ export default routes => {
       AppointmentValidation.create,
       AppointmentValidation.checkAvaliability,
       AppointmentController.store
+    )
+    .delete(
+      authMiddleware,
+      AppointmentValidation.remove,
+      AppointmentController.remove
     );
 
   return routes;
