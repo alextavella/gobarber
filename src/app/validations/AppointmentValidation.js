@@ -1,4 +1,4 @@
-import { startOfHour, isBefore, parseISO } from 'date-fns';
+import { startOfHour, parseISO } from 'date-fns';
 
 import User from '../models/User';
 import Appointment from '../models/Appointment';
@@ -15,6 +15,12 @@ class AppointmentValidation {
       return res
         .status(401)
         .json({ error: 'You can only create appointments with providers' });
+    }
+
+    if (req.userId === provider_id) {
+      return res
+        .status(401)
+        .json({ error: 'You can not to create appointment to yourself' });
     }
 
     return next();
