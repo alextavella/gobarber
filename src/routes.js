@@ -5,6 +5,7 @@ import UserRoute from './app/routes/UserRoute';
 import FileRoute from './app/routes/FileRoute';
 import ProviderRoute from './app/routes/ProviderRoute';
 import AppointmentRoute from './app/routes/AppointmentRoute';
+import ScheduleRoute from './app/routes/ScheduleRoute';
 
 const routes = new Router();
 
@@ -14,6 +15,7 @@ const myRoutes = [
   FileRoute,
   ProviderRoute,
   AppointmentRoute,
+  ScheduleRoute,
 ];
 
 routes.route('/').get((req, res) => res.status(200).send('Go Barber!'));
