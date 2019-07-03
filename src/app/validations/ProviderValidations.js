@@ -1,5 +1,1 @@
-import * as Yup from 'yup';
-
-class ProviderValidation {}
-
-export default new ProviderValidation();
+export default new (class {})();
