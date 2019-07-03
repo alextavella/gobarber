@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/server.js",
+    "queue": "nodemon src/queue.js",
     "eslint": "eslint --fix src --ext .js"
   },
   "keywords": [],
@@ -12,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "bee-queue": "^1.2.2",
     "body-parser": "^1.19.0",
     "date-fns": "^2.0.0-beta.2",
     "express": "^4.17.1",
