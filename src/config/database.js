@@ -1,10 +1,12 @@
+const { database } = require('./vars');
+
 module.exports = {
   dialect: 'postgres',
-  host: 'localhost',
-  username: 'postgres',
+  host: database.host,
+  username: database.user,
   port: 5432,
-  password: 'docker',
-  database: 'gobarber',
+  password: database.pass,
+  database: database.name,
   define: {
     timestamps: true,
     underscored: true,

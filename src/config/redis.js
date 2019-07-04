@@ -1,4 +1,6 @@
+import { redis } from './vars';
+
 export default {
-  host: '127.0.0.1',
-  port: 6379,
+  host: redis.host,
+  port: redis.port,
 };

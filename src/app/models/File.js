@@ -1,4 +1,5 @@
 import Sequelize, { Model } from 'sequelize';
+import { url } from '../../config/vars';
 
 class File extends Model {
   static init(sequelize) {
@@ -9,7 +10,7 @@ class File extends Model {
         url: {
           type: Sequelize.VIRTUAL,
           get() {
-            return `http://localhost:3333/files/${this.path}`;
+            return `${url}/files/${this.path}`;
           },
         },
       },

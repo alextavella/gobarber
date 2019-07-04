@@ -1,10 +1,12 @@
+import { mail } from './vars';
+
 export default {
-  host: 'smtp.mailtrap.io',
-  port: 2525,
+  host: mail.host,
+  port: mail.port,
   secure: false,
   auth: {
-    user: '0021d9ef1dd66c',
-    pass: 'e5dc05ead4bd65',
+    user: mail.user,
+    pass: mail.pass,
   },
   default: {
     from: 'Equipe GoBarber <noreply@gobarber.com',
