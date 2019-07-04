@@ -16,6 +16,18 @@
     Sequelize
     Migrations
 
+- MongoDb
+  ORM:
+    Mongoose
+
+- Redis
+
+- Queue for Services:
+    bee-queue
+
+- Monitore Logs:
+    Sentry
+
 
 ```
 
