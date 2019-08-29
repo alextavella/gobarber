@@ -1,6 +1,7 @@
 import path from 'path';
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import * as Sentry from '@sentry/node';
@@ -26,6 +27,7 @@ class App {
 
   middlewares() {
     this.server.use(Sentry.Handlers.requestHandler());
+    this.server.use(cors());
     this.server.use(bodyParser.urlencoded({ extended: false }));
     this.server.use(bodyParser.json());
     this.server.use(
