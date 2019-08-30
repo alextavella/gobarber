@@ -1,4 +1,5 @@
 import File from '../models/File';
+import User from '../models/User';
 
 class FileController {
   async store(req, res) {
@@ -8,6 +9,16 @@ class FileController {
       name,
       path,
     });
+
+    const user = await User.findByPk(req.userId);
+    const payload = { ...user, avatar_id: file.id };
+
+    if (user.avatar_id) {
+      const oldFile = await File.findByPk(user.avatar_id);
+      if (oldFile) oldFile.destroy();
+    }
+
+    user.update(payload);
 
     return res.json(file);
   }

@@ -11,7 +11,7 @@ import CancellationMail from '../jobs/CancellationMail';
 
 class AppointmentController {
   async index(req, res) {
-    const { page } = req.query;
+    const { page = 1 } = req.query;
     const limit = 20;
 
     const appointments = await Appointment.findAll({
