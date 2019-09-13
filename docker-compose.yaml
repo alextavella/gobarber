@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+  apigobarber:
+    build: .
+    ports:
+      - '3333:3333'
+    depends_on:
+      - postgres
+      - mongo
+      - redis
+    environment:
+      - APP_URL=http://localhost:3333
+      - AUTH_SECRET=gobarber
+      - AUTH_EXPIRES=7d
+      - DB_HOST=postgres
+      - DB_USER=postgres
+      - DB_PASS=password
+      - DB_NAME=postgres
+      - MONGO_URI=mongodb://mongo/postgres
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - MAIL_HOST=smtp.mailtrip.io
+      - MAIL_PORT=2525
+      - MAIL_USER=0021d9ef1dd66c
+      - MAIL_PASS=e5dc05ead4bd65
+      - SENTRY_DSN=
+    entrypoint: npm start
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./docker/postgres/data:/var/lib/postgresql/data
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./docker/mongo/data:/data/db
+  redis:
+    image: redis:alpine
+    command: redis-server
+    ports:
+      - '6379:6379'

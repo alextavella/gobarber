@@ -4,7 +4,7 @@
   "description": "GoBarber",
   "main": "index.js",
   "scripts": {
-    "start": "node src/server.js",
+    "start": "sucrase-node src/server.js",
     "dev": "nodemon src/server.js",
     "queue": "nodemon src/queue.js",
     "eslint": "eslint --fix src --ext .js"

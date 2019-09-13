@@ -1,15 +1,20 @@
 # Images
-FROM node:10-alpine
+FROM node:alpine
 
 # Config directories
 WORKDIR /app
-COPY . ./
+
+# Copy packages
+COPY package*.json ./
 
 # Install dependencies
 RUN npm install
+
+# Copy sources
+COPY . ./
 
 # Expose service
 EXPOSE 3333
 
 # Execute application
-CMD ["npm", "start"]
+ENTRYPOINT ["npm", "start"]
