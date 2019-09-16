@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  apigobarber:
+  api:
     build: .
     ports:
       - '3333:3333'
