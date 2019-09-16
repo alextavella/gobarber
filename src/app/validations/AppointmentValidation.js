@@ -3,6 +3,8 @@ import { startOfHour, parseISO, subHours, isBefore } from 'date-fns';
 import User from '../models/User';
 import Appointment from '../models/Appointment';
 
+import { hourDiffForCancelable } from '../config/appointment';
+
 class AppointmentValidation {
   async create(req, res, next) {
     const { provider_id } = req.body;
@@ -68,8 +70,7 @@ class AppointmentValidation {
     }
 
     // Validate 2 hours before
-    const hourDiff = 2;
-    const dateWithSub = subHours(appointment.date, hourDiff);
+    const dateWithSub = subHours(appointment.date, hourDiffForCancelable);
 
     // console.log('appointment.date', appointment.date);
     // console.log('dateWithSub', dateWithSub);
@@ -82,7 +83,7 @@ class AppointmentValidation {
 
     if (!isHoursBeforeEvent) {
       return res.status(401).json({
-        error: `You can only cancel appoitments ${hourDiff} hours in advanced`,
+        error: `You can only cancel appoitments ${hourDiffForCancelable} hours in advanced`,
       });
     }
 

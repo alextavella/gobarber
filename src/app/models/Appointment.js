@@ -1,6 +1,8 @@
 import Sequelize, { Model } from 'sequelize';
 import { isBefore, subHours } from 'date-fns';
 
+import { hourDiffForCancelable } from '../config/appointment';
+
 class Appointment extends Model {
   static init(sequelize) {
     super.init(
@@ -16,7 +18,10 @@ class Appointment extends Model {
         cancelable: {
           type: Sequelize.VIRTUAL,
           get() {
-            return isBefore(new Date(), subHours(this.date, 2));
+            return isBefore(
+              new Date(),
+              subHours(this.date, hourDiffForCancelable)
+            );
           },
         },
       },
