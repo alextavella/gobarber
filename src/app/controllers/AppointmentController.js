@@ -1,5 +1,5 @@
 import { format, parseISO } from 'date-fns';
-import ptBR from 'date-fns/locale/pt-BR';
+import pt from 'date-fns/locale/pt-BR';
 
 import User from '../models/User';
 import File from '../models/File';
@@ -54,7 +54,7 @@ class AppointmentController {
       parseISO(date),
       "'dia' dd 'de' MMMM, 'às' H:mm'h'",
       {
-        locale: ptBR,
+        locale: pt,
       }
     );
 
